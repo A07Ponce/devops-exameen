@@ -1,8 +1,8 @@
-name: Deploy alisson
+name: Deploy suntaxi
 
 on:
   push:
-    branches: ["alisson"]
+    branches: "suntaxi"
 
 permissions:
   contents: read
