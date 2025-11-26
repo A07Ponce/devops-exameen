@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+
+  alisson:
+    image: ghcr.io/alisson/alisson:1.0.5
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.alisson.rule=Host(`alisson.byronrm.com`)"
+        - "traefik.http.routers.alisson.entrypoints=http"
+        - "traefik.http.routers.alisson-secure.rule=Host(`alisson.byronrm.com`)"
+        - "traefik.http.routers.alisson-secure.entrypoints=https"
+        - "traefik.http.routers.alisson-secure.tls=true"
+        - "traefik.http.routers.alisson-secure.tls.certresolver=http"
+        - "traefik.http.services.alisson.loadbalancer.server.port=5000"
+        - "traefik.docker.network=traefik-public"
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
