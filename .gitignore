@@ -1,4 +1,17 @@
 __pycache__/
 *.pyc
-.env
-acme.json
+*.pyo
+*.pyd
+
+env/
+venv/
+
+*.log
+
+# carpetas de vscode
+.vscode/
+.idea/
+
+# archivos temporales
+*.tmp
+*.swp
